@@ -1,0 +1,7 @@
+{
+    "const_args": [
+        "--p-enable-community-detection 0"
+    ],
+    "s": [1, 2],
+    "t": [160, 180, 190]
+}
