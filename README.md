@@ -24,6 +24,15 @@ This assumes you are using bash or a compatible shell.
 - Run the workload, either directly or by using `<path-to-repo>/experiments/execute_experiments.py experiment.json`
 - After the experiment is completed: Use `<path-to-repo>/experiments/grep_experiment_results.sh <generated-folder>` to collect the results into csv files
 
+## Workflow for Running Experiments on Coarsening of MtKaHyPar-D
+- Create a folder that contains the graphs for the experiment (and preferably nothing else)
+- Adjust the paths in `env.sh` as required and execute `source <path-to-repo>/env.sh`
+- Change into directory `coarsening-experiments`
+- Adjust the `experiments.json` and `coarsener_experiments.json` with the desired experiment parameters
+- Execute `python python <path-to-repo>/coarsening-experiments/coarsener_experiment.py`. This will create a new subfolder with a file `workload.txt` that contains one line for each run of the experiment
+- Run the workload, either directly or by using `<path-to-repo>/experiments/execute_experiments.py experiments.json`
+- After the experiment is completed: Use `<path-to-repo>/experiments/grep_experiment_results.sh <generated-folder>` to collect the results into csv files
+
 Notes:
 - The partitioner calls are implemented by the python scripts in `scripts/`. The scripts can be extended, e.g. to collect additonal stats
 - To add a new partitioner, an according script must be added and the mapping in `experiments/setup_experiments.py` (as well as `experiments/execute_experiments.py`) must be updated accordingly
