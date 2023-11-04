@@ -8,8 +8,8 @@ import datetime
 # Create a temporary directory to store the experiment files required by the partitioner
 os.makedirs("tmp_target_experiments", exist_ok=True)
 
-with open("experiments.json") as experiment_json:
-    with open("coarsener_experiments.json") as coarsener_json:
+with open("experiment.json") as experiment_json:
+    with open("coarsener_experiment.json") as coarsener_json:
         experiment = json.load(experiment_json)
         coarsener_experiment = json.load(coarsener_json)
 
