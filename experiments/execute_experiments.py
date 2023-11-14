@@ -99,7 +99,7 @@ with open(args.experiment) as json_experiment:
       result_file = experiment_dir + "/" + algorithm_name + ".csv"
       if os.path.exists(result_file):
         os.remove(result_file)
-      os.system("echo 'algorithm,graph,timeout,seed,k,epsilon,num_threads,imbalance,totalPartitionTime,objective,km1,cut,failed' >> " + result_file)
+      os.system("echo 'algorithm,graph,timeout,seed,k,epsilon,num_threads,c_s,c_t,imbalance,totalPartitionTime,objective,initial_km1,km1,initial_cut,cut,failed' >> " + result_file)
       os.system("cat " + experiment_dir + "/" + algorithm_name + "_results/* >> " + result_file)
 
 

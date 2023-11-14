@@ -125,15 +125,23 @@ def parse_required_value(result_line, key, *, out=None, parser=float):
 def print_result(algorithm, args):
   timeout = _result_values["timeout"]
   failed = _result_values["failed"]
+  coarsening_max_allowed_weight_multiplier = _result_values["coarsening_max_allowed_weight_multiplier"]
+  coarsening_contraction_limit_multiplier = _result_values["coarsening_contraction_limit_multiplier"]
   imbalance = _result_values["imbalance"]
   total_time = _result_values["total_time"]
+  initial_km1 = _result_values["initial_km1"]
   km1 = _result_values["km1"]
+  initial_cut = _result_values["initial_cut"]
   cut = _result_values["cut"]
   del _result_values["timeout"]
   del _result_values["failed"]
+  del _result_values["coarsening_max_allowed_weight_multiplier"]
+  del _result_values["coarsening_contraction_limit_multiplier"]
   del _result_values["imbalance"]
   del _result_values["total_time"]
+  del _result_values["initial_km1"]
   del _result_values["km1"]
+  del _result_values["initial_cut"]
   del _result_values["cut"]
   print(algorithm,
         ntpath.basename(args.graph),
@@ -142,12 +150,17 @@ def print_result(algorithm, args):
         args.k,
         args.epsilon,
         args.threads,
+        coarsening_max_allowed_weight_multiplier,
+        coarsening_contraction_limit_multiplier,
         imbalance,
         total_time,
         args.objective,
+        initial_km1,
         km1,
+        initial_cut,
         cut,
         failed,
+
         # note: the iteration order of a dict matches the insertion order
         # (guaranteed since python 3.7)
         *_result_values.values().__iter__(),
